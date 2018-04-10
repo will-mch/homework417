@@ -16,7 +16,9 @@ public class Homework_5 {
                         Tape tapeSymbol = null;
                         StackAlphabet oldStackSymbol = null;
                         StackAlphabet newStackSymbol = null;
-                    
+                        
+                        
+                        
 			System.out.println("Please enter your tuple");
 			
 			System.out.print("Old State(1-20): ");
@@ -100,8 +102,15 @@ public class Homework_5 {
                     st.setAccepting(true);
                 }	
 		
-                PDA pda = new PDA();
-                pda.run();
+                while(true){
+                    System.out.print("Input String: ");            
+                    String input = s.next();
+                    
+                    PDA pda = new PDA(Tape.createTapeArray(input));
+                    pda.run();
+                }
+                
+
                 
 		
 	}

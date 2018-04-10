@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,5 +24,21 @@ public enum Tape {
         }else{
             return null;
         }
+    }
+    
+    public static ArrayList<Tape> createTapeArray(String string) throws Exception{
+        char[] chars = string.toCharArray();
+        ArrayList<Tape> tapeArray = new ArrayList<>();
+        
+        for(int i = 0; i < chars.length; i++){
+            Tape tape = Tape.convertString(String.valueOf(chars[i]));
+            if(tape != null){
+                tapeArray.add(tape);
+            }else{
+                throw new Exception("Input String is conversion error");
+            }
+        }
+        
+        return tapeArray;
     }
 }

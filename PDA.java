@@ -16,14 +16,12 @@ public class PDA {
     private ArrayList<Tape> inputTape;
     private Stack<StackAlphabet> stack;
     
-    public PDA(){
-        inputTape = new ArrayList<Tape>();
+    public PDA(ArrayList<Tape> inputTape){
+        this.inputTape = inputTape;
         stack = new Stack<StackAlphabet>();
     }
     
     public void run() throws Exception{
-        
-        stack.push(StackAlphabet.DOLLARSIGN);
         
         State currentState = State.getState(1);
         
