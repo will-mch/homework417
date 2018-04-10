@@ -19,7 +19,7 @@ public class State {
         
     }
     
-    public void printStates(){
+    public static void printStates(){
         for(State state: STATES){
             System.out.println(state.toString());
         }
@@ -75,7 +75,7 @@ public class State {
             }
         }
         
-        throw new Exception("Transition Doesn't exist for Tape input\n" + this.toString() + ""
+        throw new TransitionException("Transition Doesn't exist for Tape input\n" + this.toString() + ""
                 + "\n" + tape);
     }
     

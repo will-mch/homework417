@@ -140,7 +140,9 @@ public class Homework_5 {
                 for(String acceptState : acceptingStates){
                     State st = State.getState(Integer.valueOf(acceptState));
                     st.setAccepting(true);
-                }	
+                }
+                
+                State.printStates();
 		
                 while(true){
                     System.out.print("Input String: ");            

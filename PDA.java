@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 /*
@@ -23,40 +24,53 @@ public class PDA {
     
     public void run() throws Exception{
         
-        State currentState = State.getState(1);
-        Transition trans = currentState.getTransitionFor(Tape.EPSILON);
-        this.stack.push(trans.push);
+        inputTape.add(Tape.EPSILON);
+        inputTape.add(0,Tape.EPSILON);
         
-        currentState = State.getState(trans.stateNumber);
+       State currentState = State.getState(1);
         
-        for(Tape tape : inputTape){
-            System.out.println("CURRENT STATE: " + currentState);
-            System.out.println("INPUT TAPE : " + tape);
-            Transition transition = currentState.getTransitionFor(tape);
-            System.out.println("TRANSITION : " + transition.toString());
-            
-            if(transition.pop.equals(StackAlphabet.DOLLARSIGN)){
+        try{
+            for(Tape tape : inputTape){
+                Transition transition = currentState.getTransitionFor(tape);
+                System.out.println("Current State : " + currentState);
+                System.out.println("Transition : " + transition);
+                System.out.println("Stack Size : " + this.stack.size());
+                System.out.println("Input Tape: " + tape + " " + inputTape);
+
+                System.out.println();
+                
+                if(!transition.pop.equals(StackAlphabet.EPSILON)){
+                    if(transition.pop.equals(StackAlphabet.DOLLARSIGN)){
+                        if(State.getState(transition.stateNumber).isAccepting() && this.stack.peek().equals(StackAlphabet.DOLLARSIGN)){
+                            System.out.println("Accepting!");
+                        }else{
+                            System.out.println("Not Accpeting!");
+                        }
+                        break;
+                    }
+                    
+                    this.stack.pop();
+                }
+                
+                if(!transition.push.equals(StackAlphabet.EPSILON)){
+                    this.stack.push(transition.push);
+                }
+                
                 currentState = State.getState(transition.stateNumber);
-                break;
-            }else if(!transition.pop.equals(StackAlphabet.EPSILON)){
-                stack.pop();
+                
+                
+                
             }
-
-            if(!transition.push.equals(StackAlphabet.DOLLARSIGN)){
-                stack.push(transition.push);
-            }
-
-            currentState = State.getState(transition.stateNumber);
             
-           
+        }catch(EmptyStackException e){
+            System.out.println("Not Excepting");
+            //System.out.println(e.getMessage());
+           // System.out.println("Not Accepting!");
+        }catch(TransitionException e){
+            System.out.println("Not Excepting");
+        }catch(Exception e){
+            throw e;
         }
         
-        System.out.println(currentState);
-        
-        if(currentState.isAccepting()){
-            System.out.println("Accepting!");
-        }else{
-            System.out.println("Not Accepting!");
-        }
     }
 }
