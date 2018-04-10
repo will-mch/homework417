@@ -26,6 +26,14 @@ public class Homework_5 {
                         if(oldState > 20 || oldState <= 0){
                             throw new Exception("oldState input error");
                         }
+                        
+                        //New State
+			System.out.print("New-state(1-20): ");
+			newState = Integer.valueOf(s.next());                       
+                        if(newState > 20 || newState <= 0){
+                            throw new Exception("newState input error");
+                        }
+			
 			
                         //Read
 			System.out.print("Tape-symbol (-1(Epsilon), 0, 1): ");
@@ -39,13 +47,6 @@ public class Homework_5 {
 			oldStackSymbol = StackAlphabet.convertString(s.next());
                         if(oldStackSymbol == null){
                             throw new Exception("Error inputing oldStackSymbol");
-                        }
-			
-                        //New State
-			System.out.print("New-state(1-20): ");
-			newState = Integer.valueOf(s.next());                       
-                        if(newState > 20 || newState <= 0){
-                            throw new Exception("newState input error");
                         }
 			
 	
