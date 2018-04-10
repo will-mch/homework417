@@ -31,7 +31,7 @@ public class PDA {
         
         for(Tape tape : inputTape){
             System.out.println("CURRENT STATE: " + currentState);
-            System.out.println("INPUT TAPE : " + inputTape.toString());
+            System.out.println("INPUT TAPE : " + tape);
             Transition transition = currentState.getTransitionFor(tape);
             System.out.println("TRANSITION : " + transition.toString());
             
