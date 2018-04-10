@@ -18,7 +18,35 @@ public class Homework_5 {
                         StackAlphabet newStackSymbol = null;
                         
                         
+                        System.out.println("Old State, new State, Tape-Symbol, old-Stack-Symbol, new-Stack-Symbol:");
+                        String[] inputSplit  = s.next().split("\\s+");
                         
+                        oldState = Integer.valueOf(inputSplit[0]);
+                        if(oldState > 20 || oldState <= 0){
+                            throw new Exception("oldState input error");
+                        }
+                        
+                        newState = Integer.valueOf(inputSplit[1]);
+                        if(newState > 20 || newState <= 0){
+                            throw new Exception("newState input error");
+                        }
+                        
+                        tapeSymbol = Tape.convertString(inputSplit[2]);
+                        if(tapeSymbol == null){
+                            throw new Exception("TapeSymbol input error");
+                        }
+                        
+                        oldStackSymbol = StackAlphabet.convertString(inputSplit[3]);
+                        if(oldStackSymbol == null){
+                            throw new Exception("Error inputing oldStackSymbol");
+                        }
+                        
+                        newStackSymbol = StackAlphabet.convertString(inputSplit[4]);
+                        if(newStackSymbol == null){
+                            throw new Exception("Error inputing newStackSymol");
+                        }
+                                
+                        /*
 			System.out.println("Please enter your tuple");
 			
 			System.out.print("Old State(1-20): ");
@@ -58,7 +86,7 @@ public class Homework_5 {
                         if(newStackSymbol == null){
                             throw new Exception("Error inputing newStackSymol");
                         }
-						
+		*/
                         
                         State oldStateObj = null;
                         State newStateObj = null;
@@ -95,7 +123,8 @@ public class Homework_5 {
 		}
                 
                 System.out.println("Input Accepting states separated by a space. ex(1 2 3 4)");
-                String[] acceptingStates = s.next().split("\\s+");
+                Scanner scan = new Scanner(System.in);
+                String[] acceptingStates = scan.nextLine().split("\\s+");
                 
                 for(String acceptState : acceptingStates){
                     State st = State.getState(Integer.valueOf(acceptState));
@@ -104,7 +133,7 @@ public class Homework_5 {
 		
                 while(true){
                     System.out.print("Input String: ");            
-                    String input = s.next();
+                    String input = scan.nextLine();
                     
                     PDA pda = new PDA(Tape.createTapeArray(input));
                     pda.run();
