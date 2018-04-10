@@ -75,7 +75,8 @@ public class State {
             }
         }
         
-        throw new Exception("Transition Doesn't exist for Tape input");
+        throw new Exception("Transition Doesn't exist for Tape input\n" + this.toString() + ""
+                + "\n" + tape);
     }
     
     public void addTransition(Transition transition) throws Exception{
@@ -97,7 +98,8 @@ public class State {
         
         String retString = this.num + " ";
         for(Transition trans : this.transitions){
-            retString.concat("[" + trans.toString() + "]");
+            retString = retString + "[" + trans.toString() + "]";
+
         }
         
         return retString;

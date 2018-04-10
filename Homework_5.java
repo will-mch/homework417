@@ -88,6 +88,17 @@ public class Homework_5 {
                         }
 		*/
                         
+                        /*
+                        1 2 -1 -1 $
+                        2 2 0 -1 0
+                        2 3 1 0 -1
+                        3 3 1 0 -1
+                        3 4 -1 $ -1
+                        1 4
+                        string
+                        0011
+                        */
+                        
                         State oldStateObj = null;
                         State newStateObj = null;
                         
@@ -107,7 +118,7 @@ public class Homework_5 {
                         
                         
                         System.out.print("Would you like to enter another tuple? (y/n): ");
-			String ans = s.next();
+			String ans = s.nextLine();
                         
                         if(ans.equals("n")){
                            flag=false;
