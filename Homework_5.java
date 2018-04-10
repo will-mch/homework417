@@ -19,11 +19,11 @@ public class Homework_5 {
                         
                         
                         System.out.println("Old State, new State, Tape-Symbol, old-Stack-Symbol, new-Stack-Symbol:");
-                        String[] inputSplit  = s.next().split("\\s+");
+                        String[] inputSplit  = s.nextLine().split("\\s+");
                         
                         oldState = Integer.valueOf(inputSplit[0]);
                         if(oldState > 20 || oldState <= 0){
-                            throw new Exception("oldState input error");
+                            throw new Exception();
                         }
                         
                         newState = Integer.valueOf(inputSplit[1]);

@@ -92,6 +92,7 @@ public class State {
         return this.transitions;
     }
     
+    @Override
     public String toString(){
         
         String retString = this.num + " ";
