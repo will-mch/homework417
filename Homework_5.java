@@ -7,7 +7,7 @@ public class Homework_5 {
 	{
 		boolean flag=true;
 		boolean valid = true;
-		ArrayList<state> states = new ArrayList<state>();
+		ArrayList<State> states = new ArrayList<State>();
 		Scanner s = new Scanner(System.in);
 		while(flag)
 		{

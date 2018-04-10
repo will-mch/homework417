@@ -1,5 +1,5 @@
 
-public class state {
+public class State {
 	
 	int num;
 	boolean accepting;
