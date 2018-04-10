@@ -19,7 +19,7 @@ public class Homework_5 {
                     
 			System.out.println("Please enter your tuple");
 			
-			System.out.print("Old State: ");
+			System.out.print("Old State(1-20): ");
 			String a = s.next();
                         oldState = Integer.valueOf(a);
                         
@@ -28,21 +28,21 @@ public class Homework_5 {
                         }
 			
                         //Read
-			System.out.print("Tape-symbol (-1, 0, 1): ");
+			System.out.print("Tape-symbol (-1(Epsilon), 0, 1): ");
 			tapeSymbol = Tape.convertString(s.next());
                         if(tapeSymbol == null){
                             throw new Exception("TapeSymbol input error");
                         }
                         
                         //Pop
-			System.out.print("Old-stack-symbol: ");
+			System.out.print("Old-stack-symbol(-1(Epsilon),0,1,$): ");
 			oldStackSymbol = StackAlphabet.convertString(s.next());
                         if(oldStackSymbol == null){
                             throw new Exception("Error inputing oldStackSymbol");
                         }
 			
                         //New State
-			System.out.print("New-state: ");
+			System.out.print("New-state(1-20): ");
 			newState = Integer.valueOf(s.next());                       
                         if(newState > 20 || newState <= 0){
                             throw new Exception("newState input error");
@@ -50,7 +50,7 @@ public class Homework_5 {
 			
 	
                         //Pushed
-			System.out.print("New-stack: ");
+			System.out.print("New-stack(-1(Epsilon),0,1,$): ");
 			newStackSymbol = StackAlphabet.convertString(s.next());
                         if(newStackSymbol == null){
                             throw new Exception("Error inputing newStackSymol");
