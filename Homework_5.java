@@ -7,32 +7,50 @@ public class Homework_5 {
 	{
 		boolean flag=true;
 		boolean valid = true;
-		ArrayList<String> tuples = new ArrayList<String>();
+		ArrayList<state> states = new ArrayList<state>();
 		Scanner s = new Scanner(System.in);
 		while(flag)
 		{
 			String str = "";
 			System.out.println("Please enter your tuple");
+			
 			System.out.print("Old State: ");
 			String a = s.next()+",";
 			if(Integer.valueOf(a)>20)
 				valid = false;
 			str += a+",";
-			System.out.print("Tape-symbol (-1, 0, 1): ");
+			
+			System.out.print("Tape-symbol (-1, 0, 1, $): ");
 			a = s.next();
-			if(Integer.valueOf(a)<=1 && Integer.valueOf(a)>=-1)
+			if(!(Integer.valueOf(a)<=1 && Integer.valueOf(a)>=-1) && !a.equals("$"))
 				valid = false;
 			str += a+",";
+
 			System.out.print("Old-stack-symbol: ");
-			str += s.next()+",";
+			a = s.next();
+			if(!(Integer.valueOf(a)<=1 && Integer.valueOf(a)>=-1) && !a.equals("$"))
+				valid = false;
+			str += a+",";
+			
 			System.out.print("New-state: ");
-			str += s.next()+",";
+			a = s.next();
+			if(Integer.valueOf(a)>20)
+				valid = false;
+			str += a+",";
+			
 			System.out.print("New-stack: ");
-			str += s.next();
+			a = s.next();
+			if(!(Integer.valueOf(a)<=1 && Integer.valueOf(a)>=-1) && !a.equals("$"))
+				valid = false;
+			str += a+",";
+			
 			System.out.print("Would you like to enter another tuple? (y/n): ");
 			String ans = s.next();
+			tuples.add(str);
 			if(ans.equals("n"))
 				flag=false;
 		}
+		
+		
 	}
 }
